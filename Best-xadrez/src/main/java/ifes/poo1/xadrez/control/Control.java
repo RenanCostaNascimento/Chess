@@ -13,16 +13,12 @@ public class Control {
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
 				if (tabuleiro.getCasas(j,i) == null) System.out.print("x");
-		
 				else System.out.print(tabuleiro.getCasas(j,i)); 
-						
 			}
-			
+                        
 			System.out.print("\n");
-			
 		}
 	}
-	
 	
 	public void controlarPeca(String comando){
 		
@@ -37,6 +33,8 @@ public class Control {
 			
 			int posXfin = Character.getNumericValue(comando.charAt(2));
 			int posYfin = Character.getNumericValue(comando.charAt(3));
+			
+			//tabuleiro.getCasas(posXin, posYin);
 			
 			if (tabuleiro.getCasas(posXin, posYin).mover(posXin, posYin, posXfin, posYfin)){ 
 				//pega a peça que está em posXin e posYin e verifica se ela pode mover para (posXfin,posYfin).
