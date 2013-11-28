@@ -6,7 +6,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		Control control = new Control();
-		control.moverPeca("0605");
+		control.controlarPeca("2053");
+		control.controlarPeca("2042");
 		control.ImprimeTab();
 
 	}

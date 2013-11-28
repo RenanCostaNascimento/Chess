@@ -70,6 +70,7 @@ public class Tabuleiro {
 		
 	}
 
+	
 	public Pecas getCasas(int x, int y) {
 		return casas[y][x];
 	}
@@ -78,20 +79,126 @@ public class Tabuleiro {
 		this.casas[y][x] = peca;
 	}
 
+	public void ImprimeTab(){ 
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+				if (this.getCasas(j,i) == null) System.out.print("x");
+		
+				else System.out.print(this.getCasas(j,i)); 
+						
+			}
+			
+			System.out.print("\n");
+			
+		}
+	}
 	
 	
 	public void moverPeca(int xIn, int yIn, int xFin, int yFin){
+		
 		Pecas peca = this.getCasas(xIn,yIn);
 		this.setCasas(peca, xFin, yFin);
 		this.setCasas(null, xIn, yIn);
 		
-		
-		
 	}
 	
 	
+	public boolean verificaCaminhoTorre(int linhaInicial, int colunaInicial, int linhaDestino, int colunaDestino){
 		
+		if (linhaInicial == linhaDestino){
+			for (int contador=0; contador<colunaDestino; contador++){
+				if (this.getCasas(linhaDestino, contador) != null){ //não tiver peça no meio
+					return false;
+				}
+			}
+		}
+
+		
+		if (colunaDestino==colunaInicial){
+			for (int contador=0; contador<colunaDestino; contador++){
+				if (this.getCasas(contador, colunaDestino) != null){ //não tiver peça no meio
+					return false;
+				}
+			}
+		}
 		
 		
 	
+		return true;
+	}
+	
+	public boolean verificaCaminhoBispo(int linhaInicial, int colunaInicial, int linhaDestino, int colunaDestino){
+	
+		//se movendo para baixo
+		if (colunaInicial > colunaDestino){ 
+			for (int contador = linhaInicial; contador<linhaDestino; contador++){
+				//se movendo para direita
+				if (linhaInicial>linhaDestino){
+					if (this.getCasas(linhaInicial+contador, colunaInicial+contador) != null){ 
+						return false;
+					}
+				}
+				
+				//se movendo para esquerda
+				if (linhaDestino>linhaInicial){
+					if (this.getCasas(linhaInicial-contador, colunaInicial+contador) != null){ 
+						return false;
+					}
+				}
+			}
+		}
+		
+		
+		
+		//se movendo para cima
+		else{ 
+
+			for (int contador = linhaInicial; contador<linhaDestino; contador--){
+				//se movendo para direita
+				if (linhaInicial>linhaDestino){
+					if (this.getCasas(linhaInicial+contador, colunaInicial-contador) != null){ 
+						return false;
+					}
+				}
+				
+				//se movendo para esquerda
+				if (linhaDestino>linhaInicial){
+					if (this.getCasas(linhaInicial-contador, colunaInicial-contador) != null){ 
+						return false;
+					}
+				}
+			
+			}
+		}
+		
+		
+		return true;
+	}
+	
+	public boolean verificaCaminho(int linhaInicial, int colunaInicial, int linhaDestino, int colunaDestino){
+		//verifica se tem alguma casa no destino 
+		if (this.getCasas(linhaDestino, colunaDestino) != null){
+			return false;
+		}
+		
+		//Se for cavalo, passa direto.
+		if ((this.getCasas(linhaInicial,colunaInicial).toString() == "C")) return true;
+		
+		//verificação da torre.
+		if ((this.getCasas(linhaInicial,colunaInicial).toString() == "T")){
+			return verificaCaminhoTorre(linhaInicial, colunaInicial, linhaDestino, colunaDestino);
+		}
+		
+		//verificação do bispo
+		if ((this.getCasas(linhaInicial,colunaInicial).toString() == "B")){
+			return verificaCaminhoBispo(linhaInicial, colunaInicial, linhaDestino, colunaDestino);
+		}
+		
+		
+		
+		
+		return true;
+	}
+
+
 }

@@ -23,11 +23,15 @@ public class Control {
 		}
 	}
 	
-	public void moverPeca(String comando){
+	
+	public void controlarPeca(String comando){
+		
 		if (comando.length() > 4){ 
 			System.out.println("Acima de 4 caracteres");
 		}
+		
 		else{
+			
 			int posXin = Character.getNumericValue(comando.charAt(0));
 			int posYin = Character.getNumericValue(comando.charAt(1));
 			
@@ -38,6 +42,7 @@ public class Control {
 				//pega a peça que está em posXin e posYin e verifica se ela pode mover para (posXfin,posYfin).
 				tabuleiro.moverPeca(posXin, posYin, posXfin, posYfin);
 			}
+			
 			else System.out.println("Não foi possível movimentar");
 		}
 		

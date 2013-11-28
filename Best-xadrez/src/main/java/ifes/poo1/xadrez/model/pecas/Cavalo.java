@@ -15,6 +15,11 @@ public class Cavalo extends Pecas {
 	
 	@Override
 	public boolean mover(int xIn, int yIn, int xFin, int yFin) {
+		if ((xFin>7) || (xFin<0) || (yFin<0) || (yFin>7)) return false;
+		
+		if (((xFin == xIn+2)||(xFin==xIn-2)) && ((yFin == yIn+1)||(yFin == yIn-1))) return true;
+		if ((((yFin == yIn +2) || (yFin == yIn-2))) && (((xFin==xIn+1) || (xFin==xIn-1)))) return true;
+			
 		
 		return false;
 		
