@@ -15,6 +15,10 @@ public class Peao extends Pecas {
 	
 	@Override
 	public boolean mover(int xIn, int yIn, int xFin, int yFin) {
+		
+		if ((xIn == xFin) && (yFin == yIn +1)) return true;
+		if (((yIn == 1) || (yIn == 6)) && (yFin == yIn+2)) return true;
+		
 		return false;
 		
 	}

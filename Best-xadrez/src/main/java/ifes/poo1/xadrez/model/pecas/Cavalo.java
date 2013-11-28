@@ -15,6 +15,7 @@ public class Cavalo extends Pecas {
 	
 	@Override
 	public boolean mover(int xIn, int yIn, int xFin, int yFin) {
+		
 		return false;
 		
 	}

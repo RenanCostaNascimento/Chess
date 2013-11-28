@@ -12,10 +12,10 @@ public class Tabuleiro {
 	private Pecas[][] casas = new Pecas[8][8];
 
 		
-	//o metódo construtor insere as peças no tabuleiro	
+	//o metï¿½do construtor insere as peï¿½as no tabuleiro	
 	public Tabuleiro(){
 		
-		//inserindo os peões
+		//inserindo os peï¿½es
 		for (int i = 0; i < 8; i++) {
 			Pecas peao = new Peao("branco");
 			casas[1][i] = peao;
@@ -78,19 +78,7 @@ public class Tabuleiro {
 		this.casas[y][x] = peca;
 	}
 
-	public void ImprimeTab(){ 
-		for (int i = 0; i < 8; i++) {
-			for (int j = 0; j < 8; j++) {
-				if (this.getCasas(j,i) == null) System.out.print("x");
-		
-				else System.out.print(this.getCasas(j,i)); 
-						
-			}
-			
-			System.out.print("\n");
-			
-		}
-	}
+	
 	
 	public void moverPeca(int xIn, int yIn, int xFin, int yFin){
 		Pecas peca = this.getCasas(xIn,yIn);
