@@ -1,6 +1,6 @@
 package ifes.poo1.xadrez.model.main;
 
-import ifes.poo1.xadrez.control.Control;
+import ifes.poo1.xadrez.view.cci.ControladorTelas;
 
 
 public class Main {
@@ -9,11 +9,9 @@ public class Main {
     
     
 	public static void main(String[] args) {
-		Control control = new Control();
-		control.controlarPeca("0605");
-                
-               
-		control.ImprimeTab();
+		ControladorTelas control = new ControladorTelas();
+		
+		control.controlarMenuInicial();
 
 	}
 

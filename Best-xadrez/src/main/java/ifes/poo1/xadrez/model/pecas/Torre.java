@@ -11,7 +11,11 @@ public class Torre extends Pecas {
 		return "T";
 	}
 	@Override
-	public boolean mover(int xIn, int yIn, int xFin, int yFin) {
+	public boolean mover(int colunaInicial, int linhaInicial, int colunaFinal, int linhaFinal) {
+		
+		if((linhaFinal-linhaInicial == 0) || (colunaFinal - colunaInicial == 0))
+			return true;
+		
 		return false;
 		
 	}
