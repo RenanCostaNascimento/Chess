@@ -16,7 +16,11 @@ public class Rei extends Pecas {
 	}
 
 	@Override
-	public boolean mover(int xIn, int yIn, int xFin, int yFin) {
+	public boolean mover(int colunaInicial, int linhaInicial, int colunaFinal, int linhaFinal) {
+		
+		if((Math.abs(colunaFinal - colunaInicial) <= 1) && (Math.abs(linhaFinal - linhaInicial) <= 1))
+			return true;
+		
 		return false;
 		
 	}
