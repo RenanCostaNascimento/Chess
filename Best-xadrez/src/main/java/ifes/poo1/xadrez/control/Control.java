@@ -3,6 +3,8 @@ package ifes.poo1.xadrez.control;
 import ifes.poo1.xadrez.model.jogador.Jogador;
 import ifes.poo1.xadrez.model.tabuleiro.Tabuleiro;
 
+//EAEAEEAAEAEEAOUGAUSGUOGAHSHUGAHUGWAHUGWHAUGWHPOG
+
 public class Control {
 	
 	protected Tabuleiro tabuleiro = new Tabuleiro();
